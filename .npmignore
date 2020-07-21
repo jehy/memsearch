@@ -1,0 +1,4 @@
+node_modules
+.travis.yml
+package-lock.json
+.eslintrc.json
