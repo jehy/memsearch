@@ -1,21 +1,24 @@
 {
   "name": "memsearch",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "bin": "index.js",
+  "description": "Search for duplicate strings in memory snapshots",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jehy/memsearch.git"
+  },
+  "author": "Jehy <npm@jehy.ru>",
   "license": "MIT",
   "dependencies": {
-    "JSONStream": "^1.3.5",
     "yargs": "^15.4.1"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "14.2.0",
-    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "4.2.1",
@@ -23,5 +26,17 @@
     "eslint-plugin-standard": "4.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   }
 }

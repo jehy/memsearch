@@ -6,7 +6,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const JSONStream = require('JSONStream');
 
 const {argv} = require('yargs')
   .usage('Usage: memsearch <command> [options]')
@@ -78,9 +77,8 @@ function getAllKeys() {
     console.log(`reading ${file}`);
     const data = fs.readFileSync(path.join(inputDir, '/', file));
     console.log('read');
-    const json = JSON.parse(data);
+    const {strings} = JSON.parse(data);
     console.log('parsed');
-    const {strings} = json;
     let count = 0;
     strings.forEach(str => {
       if (isBadStr(str)) {
