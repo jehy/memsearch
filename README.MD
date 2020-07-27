@@ -4,9 +4,9 @@
 [![dependencies Status](https://david-dm.org/jehy/memsearch/status.svg)](https://david-dm.org/jehy/memsearch)
 [![devDependencies Status](https://david-dm.org/jehy/memsearch/dev-status.svg)](https://david-dm.org/jehy/memsearch?type=dev)
 
-`memsearch` is a simple CLI tool to find duplicate strings
-in your memory snapshots. After you find leaked strings, it is
-usually really simple to find the leak source.
+`memsearch` is a simple CLI tool to find duplicate strings in your memory snapshots.
+
+After you find leaked strings, it is usually really simple to find the leak source.
 
 I recommend taking 3 snapshots ore more for best results.
 

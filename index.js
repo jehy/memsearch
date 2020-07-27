@@ -103,10 +103,15 @@ if (snapShotsNumber === 1) {
   process.exit(1);
 }
 const minCount = snapShotsNumber === 2 ? 2 : Math.round(snapShotsNumber / 2);
+const maxCount = snapShotsNumber === 2 ? false : snapShotsNumber;
+
 console.log(`Searching for strings with >= ${minCount} entries`);
+if (maxCount) {
+  console.log(`excluding strings with number of entries equal to snapshots count: ${maxCount}`);
+}
 
 const manyKeys = Object.entries(keys).reduce((res, [key, count]) => {
-  if (count >= minCount && count !== snapShotsNumber) {
+  if (count >= minCount && (maxCount === false || count !== maxCount)) {
     res[key] = count;
   }
   return res;
@@ -120,6 +125,12 @@ const sortedKeys = Object.entries(manyKeys)
     return key1 - key2;
   })
   .map(val => val[0]);
+
+if (!sortedKeys.length) {
+  console.log('No common strings found :(');
+} else {
+  console.log(`Found ${sortedKeys.length} common strings`);
+}
 
 const data = sortedKeys.map(key => `${key}: ${manyKeys[key]}`).join('\n');
 

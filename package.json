@@ -1,6 +1,6 @@
 {
   "name": "memsearch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "bin": "index.js",
   "description": "Search for duplicate strings in memory snapshots",
   "main": "index.js",
